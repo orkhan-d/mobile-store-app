@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:store/colors.dart';
 import 'package:store/components/button.dart';
 import 'package:store/components/custom_badge.dart';
+import 'package:store/components/support_btn.dart';
 import 'package:store/enums.dart';
 import 'package:store/pages/cart_page.dart';
 import 'package:store/pages/products_page.dart';
@@ -68,6 +69,7 @@ class MainScreen extends StatelessWidget {
           children: _pages,
         ),
       ),
+      floatingActionButton: const SupportButton(),
       bottomNavigationBar: NavigationBar(
         selectedIndex: navigationProvider.index,
         onDestinationSelected: (int index) {

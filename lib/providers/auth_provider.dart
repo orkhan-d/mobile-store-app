@@ -8,12 +8,14 @@ class AuthProvider extends ChangeNotifier {
   AuthProvider() {
     getSavedUser().then((user) {
       setUser(user);
-      isLoading = false;
-    });
-    getSavedToken().then((token) {
+    }).then((_) => getSavedToken()).then((token) {
       setToken(token);
-      isLoading = false;
     });
+    isLoading = false;
+    // getSavedToken().then((token) {
+    //   setToken(token);
+      
+    // });
   }
 
   setUser(User? user) {
@@ -22,7 +24,9 @@ class AuthProvider extends ChangeNotifier {
   }
 
   setToken(String? token) {
-    currentUser!.token = token;
+    if (currentUser!=null) {
+      currentUser!.token = token;
+    }
     notifyListeners();
   }
 }
